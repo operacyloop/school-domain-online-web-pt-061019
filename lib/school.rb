@@ -10,6 +10,8 @@ class School
   end
 
   # Method 2: define the roster
+  # actually, roster is defined on line 9
+  # this is a getter method (or a "reader")
   
   def roster
     @roster
@@ -18,12 +20,17 @@ class School
   # Method 3: should be able to add students, using name of student and the grade they're in
 
    def add_student(name, grade)
-    if @roster[grade] != nil 
-      @roster[grade] << name
-    else
-      @roster[grade] = [name]
-    end
+    # if @roster[grade] != nil 
+    #   @roster[grade] << name
+    # else
+    #   @roster[grade] = [name]
+    # end
+    
+    @roster[grade] ||= [] 
+    @roster[grade] << name 
   end
+  
+  
 
   # Method 4: roster by grade (?)
 
